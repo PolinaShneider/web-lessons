@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Arrays revision</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container mt-5">
+		<div>
+			<input type="text" class="form-control js-input mb-3">
+			<input type="text" class="form-control js-input mb-3">
+			<input type="text" class="form-control js-input mb-3">
+			<input type="text" class="form-control js-input mb-3">
+			<input type="text" class="form-control js-input mb-3">
+		</div>
+		<button class="btn btn-primary" type="button" id="button">Button</button>
+	</div>
+	<script>
+		let inputs = document.querySelectorAll('.js-input');
+		let array = [];
+		let emptyCounter = 0;
+
+		button.onclick = function() {
+			for (let i = 0; i < inputs.length; i++) {
+				if (inputs[i].value) {inputArrays.gif
+					array.push(inputs[i].value);
+				} else {
+					array.push('Инпут пустой!');
+					emptyCounter++;
+				}
+			}
+
+			console.group(`⛱ Мы собрали массив`);
+			console.log(array);
+			console.log(`В нем ${emptyCounter} пустых элементов`);
+			console.groupEnd();
+		}
+	</script>
+</body>
+</html>

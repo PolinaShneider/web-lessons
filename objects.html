@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Objects basic syntax</title>
+</head>
+<body>
+	<script type="text/javascript">
+		let animal = {
+			name: 'Мурзик',
+			age: 2,
+			favouriteFood: 'Мясо'
+		};
+
+		animal.fear = 'Мыши';
+
+		delete animal.age;
+
+		delete animal['favouriteFood'];
+
+		let myKey = 'favouriteGame';
+
+		animal[myKey] = 'Прятки';
+
+		for (property in animal) {
+			console.log(property, ':', animal[property]);
+		}
+
+		console.log(animal.age);
+		console.log(animal.breed);
+
+		if ('age' in animal) {
+			console.log(`Свойство age есть`);
+		} else {
+			console.log(`Свойства age нет`);
+		}
+
+		if (myKey in animal) {
+			console.log(`Свойство ${myKey} есть`);
+		} else {
+			console.log(`Свойства ${myKey} нет`);
+		}
+	</script>
+</body>
+</html>

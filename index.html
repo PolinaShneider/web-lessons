@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Objects</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container m-5">
+		<div class="row">
+			<div class="col-6">
+				<div class="input-group mb-3">
+				  <input type="text" class="form-control" placeholder="Какое свойство удалим?" id="toDelete">
+				  <div class="input-group-append">
+				    <button class="btn btn-primary" type="button" id="buttonDel">Button</button>
+				  </div>
+				</div>
+				<div class="input-group mb-3">
+				  <input type="text" class="form-control" placeholder="Какое свойство добавим?" id="toAdd">
+				  <div class="input-group-append">
+				    <button class="btn btn-primary" type="button" id="buttonAdd">Button</button>
+				  </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		let user = {};
+		user.name = 'Vasya';
+		user.age = 14;
+
+		console.log(user);
+
+		let buttonDel = document.getElementById('buttonDel');
+
+		buttonDel.onclick = function() {
+			let toDelete = document.getElementById('toDelete').value;
+			if (!toDelete) return;
+
+			console.clear();
+			
+			if (toDelete in user) {
+				console.log(`Свойство '${toDelete}: ${user[toDelete]}' успешно удалено`);
+				delete user[toDelete];
+			} else {
+				console.log(`Свойства '${toDelete}' не существует`)
+			}
+
+			for (prop in user) {
+				console.log(`${prop}: ${user[prop]}`);
+			}
+		}
+
+		let buttonAdd = document.getElementById('buttonAdd');
+
+		buttonAdd.onclick = function() {
+			let toAdd = document.getElementById('toAdd').value;
+			if (!toAdd) return;
+
+			console.clear();
+
+			if (toAdd in user) {
+				console.log(`Свойство '${toAdd}: ${user[toAdd]}' уже существует`);
+			} else {
+				user[toAdd] = `Здесь может быть ваше значение 🍓`;
+				console.log(`Свойство '${toAdd}' успешно добавлено`)
+			}
+
+			for (prop in user) {
+				console.log(`${prop}: ${user[prop]}`);
+			}
+		}
+	</script>
+</body>
+</html>
