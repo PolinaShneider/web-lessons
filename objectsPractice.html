@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		let students = {
+			'Маша': [4, 2, 3, 3],
+			'Вася': [3, 3, 5],
+			'Антон': [3, 3, 5]
+		}
+
+		let maxMark = 0;
+		let bestStudent = '';
+
+		for (item in students) {
+
+			let studentsAverage = 0;
+
+			for (let i = 0; i < students[item].length; i++) {
+				studentsAverage += students[item][i];
+			}
+
+			studentsAverage = studentsAverage / students[item].length;
+			
+			if (studentsAverage > maxMark) {
+				maxMark = studentsAverage// .toFixed(2);
+				bestStudent = item;
+			}
+		}
+
+		console.log(`Best student ${bestStudent}, max mark ${maxMark}`);
+
+		console.log(Object.keys(students).length);
+	</script>
+</body>
+</html>
