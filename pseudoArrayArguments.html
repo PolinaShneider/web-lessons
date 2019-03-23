@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function argumentsTest() {
+			let sum = 0;
+			let half = Math.ceil(arguments.length / 2);
+
+			for(let i = 0; i < half; i++){
+				sum += arguments[i];
+			}
+
+			return sum / half;
+		}
+
+		let result = argumentsTest(1, 2, 3, 4, 5);
+		//console.log(result);
+	</script>
+</body>
+</html>

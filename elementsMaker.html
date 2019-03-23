@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function _make(HTMLelem, classEl, attributes) {
+			let elem = document.createElement(HTMLelem);
+
+			if (Array.isArray(classEl)) {
+				for(let i = 0; i < classEl.length; i++){
+					elem.classList.add(classEl[i])
+				}
+			} else {
+				elem.classList.add(classEl);
+			}
+
+
+			for (prop in attributes) {
+				elem.setAttribute(prop, attributes[prop]);
+			}
+
+			return elem;
+		}
+
+		let newEl = _make('div', ['test', 'me'], {
+			id: 'like'
+		})
+
+		document.body.appendChild(newEl);
+	</script>
+</body>
+</html>

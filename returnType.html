@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Questionnaire</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container text-center my-5">
+		<button class="btn btn-primary" onclick="Questionnaire()">Questionnaire 🤓</button>
+	</div>
+	<script type="text/javascript">
+		function Questionnaire() {
+			let name = prompt("Enter your name");
+			let age = prompt("How old are you?");
+			let favouriteFood = prompt("What do you like to eat?");
+
+			let userData = {
+				name: name || 'Anonymous',
+				age: age || 'Invalid age',
+				favouriteFood: favouriteFood || 'Doesn\'t eat'
+			};
+
+			if (!age) {
+				console.log(userData);
+				return;
+			};
+
+			if (age < 18) {
+				userData.status = 'Goes to school';
+			} else if (age > 18 && age < 24) {
+				userData.status = 'Goes to university';
+			} else {
+				userData.status = 'Goes to work';
+			}
+
+			console.log(userData)
+		}
+	</script>
+</body>
+</html>
