@@ -2,6 +2,46 @@
 <html>
 <head>
 	<title></title>
+	<style type="text/css">
+		.my-image {
+			width: 200px;
+			height: auto;
+			border-radius: 8px;
+			overflow: hidden;
+			display: block;
+			margin: 8px;
+		}
+
+		.btn {
+		    display: inline-block;
+		    font-weight: 400;
+		    color: #212529;
+		    text-align: center;
+		    vertical-align: middle;
+		    -webkit-user-select: none;
+		    -moz-user-select: none;
+		    -ms-user-select: none;
+		    user-select: none;
+		    background-color: transparent;
+		    border: 1px solid transparent;
+		    padding: .375rem .75rem;
+		    font-size: 1rem;
+		    line-height: 1.5;
+		    border-radius: .25rem;
+		    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+		}
+
+		.btn-primary {
+		    color: #fff;
+		    background-color: #007bff;
+		    border-color: #007bff;
+		    margin: 8px;
+		}
+
+		.btn-primary::before {
+			content: attr(data-text);
+		}
+	</style>
 </head>
 <body>
 	<script type="text/javascript">
@@ -24,11 +64,17 @@
 			return elem;
 		}
 
-		let newEl = _make('div', ['test', 'me'], {
-			id: 'like'
+		let newEl = _make('img', 'my-image', {
+			src: 'https://pp.userapi.com/c844720/v844720843/f0d7d/fooefBm-t9Q.jpg'
 		})
 
 		document.body.appendChild(newEl);
+
+		let newBtn = _make('button', ['btn', 'btn-primary'], {
+			'data-text' : 'Hello unicorn 🦄'
+		});
+
+		document.body.appendChild(newBtn);
 	</script>
 </body>
 </html>
