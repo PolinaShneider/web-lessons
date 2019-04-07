@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		html, body {
+			height: 100%;
+		}
+
+		body {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		#timer {
+			font-size: 50px;
+		}
+	</style>
+</head>
+<body>
+	<div id="timer">
+		
+	</div>
+<script type="text/javascript">
+	let jokes = ['Привет', 'Как дела?', 'Адская магия', 'А мы тут сайты делаем'];
+
+	setInterval(function() {
+		let phrase = jokes[getRandomArbitrary(0, jokes.length)];
+		console.log(phrase)
+		timer.innerHTML = phrase;
+
+	}, 1000);
+
+	function getRandomArbitrary(min, max) {
+	  return Math.round(Math.random() * (max - min) + min);
+	}
+</script>
+</body>
+</html>

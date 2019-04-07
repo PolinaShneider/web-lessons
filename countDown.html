@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		html, body {
+			height: 100%;
+		}
+
+		body {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		#timer {
+			font-size: 50px;
+		}
+	</style>
+</head>
+<body>
+<div id="timer"></div>
+<script type="text/javascript">
+	(function () {
+		let seconds = 2;
+		let time = seconds;
+
+		let timerid = setInterval(function() {
+			if (seconds < 0) {
+				clearInterval(timerid);
+			} else if (seconds < 10) {
+				timer.innerHTML = `00:0${seconds--}`;
+			} else {
+				timer.innerHTML = `00:${seconds--}`;
+			}
+		}, 1000);
+	})();
+</script>
+</body>
+</html>

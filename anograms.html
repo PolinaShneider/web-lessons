@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	let anograms = ['сон', 'нос', 'тест', 'кот', 'ток'];
+	let target = {};
+	let array = [];
+
+	console.log(anograms);
+
+	for(let i = 0; i < anograms.length; i++){
+		let key = anograms[i].split('').sort().join('');
+
+		if (key in target) {
+			target[key].push(anograms[i]);
+		} else {
+			target[key] = [anograms[i]];
+		}
+	}
+
+	for (prop in target) {
+		array.push(target[prop])
+	}
+
+	console.log(array);
+
+</script>
+</body>
+</html>
