@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		body {
+			margin: 0;
+		}
+
+		button {
+			font-family: monospace;
+		}
+		
+		.game {
+			position: relative;
+			display: block;
+			border-radius: 4px;
+			background: violet;
+			height: 400px;
+			width: 400px;
+		}
+
+		.ball {
+			position: absolute;
+			width: 70px;
+			height: 70px;
+			border-radius: 50%;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div class="game" id="game">
+		<button onclick="moveWithMouse()">Move with mouse</button>
+		<button onclick="moveWithArrows()">Move with arrows</button>
+		<button onclick="randomPosition()">Set random position</button>
+		<button onclick="randomColor()">Set random color</button>
+		<button onclick="randomSize()">Set random size</button>
+		<div class="ball" id="ball"></div>
+	</div>
+	<script type="text/javascript">
+		let ball = document.getElementById('ball');
+		let game = document.getElementById('game');
+		const gameCoordinates = game.getBoundingClientRect();
+		const colors = ['red', 'yellow', 'green', 'blue', 'orange'];
+
+		let ballX = 0;
+		let ballY = 0;
+		let ballWidth = 70;
+		let ballHeight = 70;
+
+		function randomSize() {
+			ballWidth = ballHeight = random(10, 100);
+
+			ball.style.width = ballWidth + 'px';
+			ball.style.height = ballHeight + 'px';
+		}
+
+		function randomPosition() {
+			ballX = random(gameCoordinates.x, gameCoordinates.x + gameCoordinates.width - ballWidth);
+			ballY = random(gameCoordinates.y, gameCoordinates.y + gameCoordinates.height - ballHeight);
+
+			ball.style.left = ballX + 'px';
+			ball.style.top = ballY + 'px';
+		}
+
+		function randomColor() {
+			ball.style.background = colors[Math.ceil(random(0, colors.length - 1))];
+		}
+
+		function random(min, max) {
+			return Math.random() * (max - min) + min;
+		}
+
+		function mouseMove({clientX, clientY}) {
+			if (clientX >= gameCoordinates.left && clientX  <= gameCoordinates.right - ballWidth) {
+				ball.style.left = clientX + 'px';
+			}
+
+			if (clientY >= gameCoordinates.top && clientY <= gameCoordinates.bottom - ballHeight) {
+				ball.style.top = clientY + 'px';
+			}
+		}
+
+		function arrowsMove(event) {
+			const [left, up, right, down] = [37, 38, 39, 40];
+
+			switch (event.keyCode) {
+				case up:
+					if (ballY >= gameCoordinates.top) {
+						ballY -= 5;
+						ball.style.top = ballY + 'px';
+					}
+					break;
+				case down:
+					if (ballY <= gameCoordinates.bottom - ballHeight) {
+						ballY += 5;
+						ball.style.top = ballY + 'px';
+					}
+					break;
+				case left:
+					if (ballX >= gameCoordinates.left) {
+						ballX -= 5;
+						ball.style.left = ballX + 'px';
+					}
+					break;
+				case right:
+					if (ballX <= gameCoordinates.right - ballWidth) {
+						ballX += 5;
+						ball.style.left = ballX + 'px';
+					}
+					break;
+			}
+		}
+
+		function moveWithArrows() {
+			document.removeEventListener('mousemove', mouseMove)
+			document.addEventListener('keydown', arrowsMove)
+		}
+
+		function moveWithMouse() {
+			console.log('got heere')
+			document.addEventListener('mousemove', mouseMove)
+			document.removeEventListener('keydown', arrowsMove)
+		}
+	</script>
+</body>
+</html>
