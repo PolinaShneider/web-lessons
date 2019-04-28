@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+	<title>Too cool 4 school</title>
+	<style type="text/css">
+		body {
+			font-family: 'Inconsolata', monospace;
+			position: relative;
+			height: 100%;
+		}
+		html {
+			height: 100%;
+		}
+		.holder {
+			text-align: center;
+			position: absolute;
+			background: url('img/blackboard.png') center center/cover no-repeat;
+			width: 519px;
+			height: 333px;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+		}
+		.timer {
+			font-size: 35px;
+			position: absolute;
+			top: 25px;
+			right: 45px;
+			color: #fff;
+		}
+
+		.task {
+			font-size: 30px;
+			font-weight: bold;
+			color: #fff;
+			font-style: italic;
+			margin-bottom: 10px;
+		}
+
+		.score {
+			position: absolute;
+			top: 25px;
+			left: 45px;
+			font-size: 30px;
+			color: #fff;
+		}
+
+		.button {
+			margin-top: 8px;
+		}
+
+		input {
+			border: 0;
+    		padding: 4px;
+    		border-radius: 3px;
+    		outline: none;
+		}
+
+		button {
+			display: inline-block;
+		    font-family: 'Inconsolata', monospace;
+		    color: #fff;
+		    text-align: center;
+		    vertical-align: middle;
+		    user-select: none;
+		    background-color: #000;
+		    border: 1px solid transparent;
+		    padding: .375rem .75rem;
+		    font-size: 16px;
+		    line-height: 1.5;
+		    border-radius: 16px;
+		    outline: none;
+		    cursor: pointer;
+		}
+
+		.feedback {
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+			bottom: 40px;
+		}
+	</style>
+</head>
+<body>
+	<div class="holder">
+		<div id="timerHolder" class="timer">00:60</div>
+		<div id="task" class="task"></div>
+		<div id="feedback" class="feedback"></div>
+		<div id="scoreHolder" class="score">Score: 0</div>
+		<input type="text" id="input">
+		<button id="button" class="button">Answer</button>
+	</div>
+	<script type="text/javascript">
+		let currentTask = '';
+		let correctAnswer;
+		let score = 0;
+		let answer = '';
+		let isGuessed = false;
+
+		
+		button.addEventListener('click', function() {
+			answer = parseInt(input.value);
+
+			if (answer === correctAnswer) {
+				score++;
+				scoreHolder.textContent = `Score: ${score}`;
+				feedback.textContent = `Correct!`;
+				feedback.style.color = 'white';
+				generateTask();
+			} else {
+				feedback.style.color = 'red';
+				feedback.textContent = `Incorrect!`;
+			}
+		});
+
+		function generateTask() {
+			let first = arbitraryRandom(0, 10);
+			let second = arbitraryRandom(0, 10);
+			correctAnswer = first + second;
+			currentTask = `${first} + ${second} =`;
+
+			task.textContent = currentTask;
+		}
+
+		function arbitraryRandom(min, max) {
+			return Math.ceil(Math.random() * (max - min) + min);
+		}
+
+		(function () {
+			let timer = 60;
+			generateTask();
+
+			let intervalId = setInterval(() => {
+				timer--;
+
+				if (timer <= 0) {
+					clearInterval(intervalId);
+					feedback.textContent = `You ran out of time!`;
+					feedback.style.color = 'orange';
+					button.disabled = true;
+				}
+			
+				timerHolder.textContent = `00:${timer.toString().padStart(2, '0')}`;
+
+			}, 1000);
+		})();
+	</script>
+</body>
+</html>

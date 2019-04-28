@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	function bubbleSort(arr) {
+		let swapped = 0;
+
+		while (swapped + 1 < arr.length) {
+			for (let i = 0; i < arr.length; i++) {
+				if (arr[i] > arr[i + 1]) {
+					let tmp = arr[i];
+					arr[i] = arr[i + 1];
+					arr[i + 1] = tmp;
+				}
+			}
+
+			swapped++;
+		}
+
+		return arr;
+	}
+
+	function insertSort(arr) {
+	  for(let i = 1; i < arr.length; i++) {
+	    elem = arr[i];
+	    j = i - 1;
+	    while(j >= 0 && arr[j] > elem) {
+	      arr[j + 1] = arr[j];
+	      j--
+	    }
+	    arr[j + 1] = elem;
+	  }
+
+	  return arr;
+	}
+
+	console.log(
+		JSON.stringify(bubbleSort([5, 1, 4, 2, 8, 0])) === JSON.stringify([5, 1, 4, 2, 8, 0].sort((a, b) => {return a - b})),
+		JSON.stringify(insertSort([5, 1, 4, 2, 8, 0])) === JSON.stringify([5, 1, 4, 2, 8, 0].sort((a, b) => {return a - b})),
+	);
+</script>
+</body>
+</html>
