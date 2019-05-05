@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		function customRandom(min, max) {
+			return Math.floor(Math.random() * (max - min) + min);
+		}
+
+		function getNamesLength(names) {
+			let arr = [];
+
+			for (let i = 0; i < names.length; i++) {
+				arr.push(names[i].length);
+			}
+
+			return arr;
+		}
+
+		function getNamesLengthMap(names) {
+			return names.map(function(item) {
+				return item.length;
+			})
+		}
+
+		function BubbleSort(arr) {
+			for (let i = 0; i < arr.length; i++) {
+				for (let j = 0; j < arr.length - 1; j++) {
+					if (arr[j] > arr[j + 1]) {
+						let tmp = arr[j];
+						arr[j] = arr[j + 1];
+						arr[j + 1] = tmp;
+					}
+				}
+			}
+
+			return arr;
+		}
+
+		function arraySort(arr) {
+			return arr.sort(function(a,b) {
+				return a - b;
+			})
+		}
+
+		function allMatch(arr) {
+			for(let i = 0; i < arr.length; i++) {
+				if (arr[i] < 0) return false;
+			}
+
+			return true;
+		}
+
+		function allMatchEvery(arr) {
+			return arr.every(function(item) {
+				return item > 0;
+			})
+		}
+
+		function someMatch(arr) {
+			let result = [];
+
+			for(let i = 0; i < arr.length; i++) {
+				if (arr[i] >= 0) result.push(arr[i]);
+			}
+
+			return result.length ? true : false;
+		}
+
+		function someMatchSome(arr) {
+			return arr.some(function(item) {
+				return item >= 0;
+			})
+		}
+
+		function filterItems(arr) {
+			let result = [];
+
+			for (let i = 0; i < arr.length; i++) {
+				if (arr[i] > 0) result.push(arr[i]);
+			}
+
+			return result;
+		}
+
+		function filterItemsFilter(arr) {
+			return arr.filter(function(item) {
+				return item > 0;
+			})
+		}
+
+
+	</script>
+</body>
+</html>
