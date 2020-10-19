@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Мудборд 🤪</title>
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+	<meta charset="utf-8">
+	<style type="text/css">
+		body {
+			background: #dfdfdf;
+			font-family: 'Raleway', sans-serif;
+		}
+
+		.container {
+			width: 1200px;
+			margin: 0 auto;
+			padding: 10px;
+		}
+
+		.grid {
+			display: flex;
+			flex-wrap: wrap;
+		}
+
+		.grid__item {
+			padding: 10px;
+			width: calc(100% / 3 - 20px);
+			position: relative;
+		}
+
+		.grid__item .overlay {
+			position: absolute;
+			top: 10px;
+			left: 10px;
+			right: 10px;
+			bottom: 10px;
+			background: rgba(0,0,0,.5);
+		}
+
+		.grid__item:hover .overlay {
+			background: rgba(0,0,0,.75);
+		}
+
+		.grid__item .bg {
+			display: block;
+			height: 300px;
+			width: 100%;
+			object-fit: cover;
+			object-position: 0 30%;
+		}
+
+		.grid__item--top .bg {
+			object-position: 0 0;
+		}
+
+		.grid__item--bottom .bg {
+			object-position: 0 50%;
+		}
+
+		.quote {
+			background: #fff;
+			width: 100%;
+    		height: 100%;
+		}
+
+		.like {
+			position: absolute;
+			top: 30px;
+			left: 30px;
+			z-index: 1;
+			display: flex;
+			align-items: center;
+		}
+
+		.like__icon {
+			height: 25px;
+			display: block;
+			transition: all .2s ease-in-out;
+		}
+
+		.like__icon:hover {
+			transform: scale(1.2);
+		}
+
+		.like__count {
+			margin-left: 10px;
+			color: #fff;
+			font-size: 16px;
+		}
+
+		.like__count--dark {
+			color: #000;
+		}
+
+		.marker {
+			position: absolute;
+			right: 30px;
+			top: 33px;
+			height: 15px;
+			width: 15px;
+			border-radius: 50%;
+			border: 2px solid;
+		}
+
+		.marker--red {
+			border-color: #d05b4e;
+		}
+
+		.marker--red:hover {
+			background: #d05b4e;
+		}
+
+		.marker--blue {
+			border-color: #4e82d0;
+		}
+
+		.marker--blue:hover {
+			background: #4e82d0;
+		}
+
+		.card-content {
+			position: absolute;
+			top: 50px;
+			right: 30px;
+			left: 30px;
+			margin: 20px 0;
+		}
+
+		.card-content h1 {
+			font-size: 20px;
+		}
+
+		.card-content--light {
+			color: #fff;
+		}
+
+		.play {
+			height: 30px;
+			display: block;
+		}
+
+		.footer {
+			position: absolute;
+		    bottom: 20px;
+		    left: 20px;
+		    right: 30px;
+		    display: flex;
+		    align-items: center;
+		}
+
+		.card-icon {
+			height: 100px;
+			margin-top: 70px;
+			transition: all .2s ease-in-out;
+		}
+
+		.card-icon:hover {
+			-webkit-filter: grayscale(1);
+			filter: grayscale(1); 
+		}
+
+		.footer .avatar {
+			width: 30px;
+			height: 30px;
+			border-radius: 50%;
+			object-fit: cover;
+			border: 2px solid #fff;
+			margin-right: 5px;
+			transition: transform .5s ease-in-out; 
+		}
+
+		.footer .avatar:nth-of-type(2n):hover {
+			transform: rotate(150deg);
+		}
+
+		.footer .avatars {
+			margin: 20px 0 10px 10px;
+		}
+
+		.footer .line {
+			background: rgba(255,255,255,.5);
+		    height: 2px;
+		    flex-grow: 1;
+		}
+
+		.center {
+			text-align: center;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1 class="center">Ma gallery</h1>
+		<div class="grid">
+			<div class="grid__item grid__item--top">
+				<img class="bg" src="https://i.pinimg.com/originals/73/44/ba/7344ba6cb9168b994cef0967142eacae.jpg" alt="Граффити">
+				<div class="like">
+					<img class="like__icon" src="https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678087-heart-512.png" alt="Лайк">
+					<span class="like__count">1 000</span>
+				</div>
+				<span class="marker marker--red"></span>
+			</div>
+			<div class="grid__item">
+				<div class="quote"></div>
+				<div class="like">
+					<img class="like__icon" src="https://cdn2.iconfinder.com/data/icons/pittogrammi/142/80-512.png" alt="Лайк">
+					<span class="like__count like__count--dark">20</span>
+				</div>
+				<span class="marker marker--blue"></span>
+				<div class="card-content">
+					<h1>This pinboard is filled with cool events, photos and media. I love it</h1>
+				</div>
+			</div>
+			<div class="grid__item">
+				<img class="bg" src="https://image.winudf.com/v2/image1/Y29tLnRodW5rYWJsZS5hbmRyb2lkLmNhaW9fY2FybG9zcm95YWxlMS5BbmltZVdhbGxwYXBlcl9zY3JlZW5fM18xNTY3MTI4ODIyXzAyOQ/screen-3.jpg?fakeurl=1&type=.jpg" alt="Пальмы">
+				<div class="like">
+					<img class="like__icon" src="https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678087-heart-512.png" alt="Лайк">
+					<span class="like__count">99</span>
+				</div>
+				<span class="overlay"></span>
+				<div class="card-content card-content--light">
+					<h1>Company retreat in Deer Valley, Utah</h1>
+					<p>3pm – 8pm</p>
+				</div>
+				<div class="footer">
+					<div class="avatars">
+						<img class="avatar" src="https://i.pinimg.com/originals/3e/2e/8c/3e2e8c6fa626636eb4e8bdfe78edab3b.jpg">
+						<img class="avatar" src="https://images.unsplash.com/photo-1527082395-e939b847da0d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80">
+						<img class="avatar" src="https://www.portrait101.com/wp-content/uploads/2013/09/portrait-after.jpg">
+					</div>
+				</div>
+			</div>
+
+			<div class="grid__item">
+				<img class="bg" src="https://i.pinimg.com/originals/b2/83/ca/b283caa8f7fa3c8e3e3676ab48ff8780.png" alt="Подсолнухи">
+				<div class="like">
+					<img class="like__icon" src="https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678087-heart-512.png" alt="Лайк">
+					<span class="like__count">22</span>
+				</div>
+				<span class="overlay"></span>
+				<div class="card-content card-content--light">
+					<h1>Summertime sadness</h1>
+				</div>
+				<div class="footer">
+					<img class="play" src="https://icon-library.com/images/white-play-icon-png/white-play-icon-png-7.jpg">
+					<div class="line"></div>
+				</div>
+			</div>
+			<div class="grid__item grid__item--bottom">
+				<img class="bg" src="https://i.pinimg.com/originals/fc/44/a7/fc44a7e04b9441d90350e81231793e0d.jpg" alt="Фейерверк">
+				<div class="like">
+					<img class="like__icon" src="https://cdn2.iconfinder.com/data/icons/pittogrammi/142/80-512.png" alt="Лайк">
+					<span class="like__count like__count--dark">2</span>
+				</div>
+				<div class="card-content card-content--light">
+					<h1>You will never be younger than very this moment</h1>
+				</div>
+				<div class="footer">
+					<img class="play" src="https://icon-library.com/images/white-play-icon-png/white-play-icon-png-7.jpg">
+					<div class="line"></div>
+				</div>
+			</div>
+			<div class="grid__item">
+				<img class="bg" src="https://64.media.tumblr.com/84db6422c64b2b33e9e7b0f176180895/850dfb5ea25c5c03-25/s640x960/63b1be14edcbcd5d765d90caa9b7a6cd75f0ce50.jpg" alt="Розовый пляж">
+				<div class="like">
+					<img class="like__icon" src="https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678087-heart-512.png" alt="Лайк">
+					<span class="like__count">222</span>
+				</div>
+				<span class="overlay"></span>
+			</div>
+
+			<div class="grid__item">
+				<img class="bg" src="https://cdn.booooooom.com/wp-content/uploads/2014/12/Adams-Domogalla-tumblr07.jpg" alt="Горы">
+				<div class="like">
+					<img class="like__icon" src="https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678087-heart-512.png" alt="Лайк">
+					<span class="like__count">14</span>
+				</div>
+				<div class="card-content card-content--light">
+					<h1>Believe me</h1>
+				</div>
+				<div class="footer">
+					<img class="play" src="https://icon-library.com/images/white-play-icon-png/white-play-icon-png-7.jpg">
+					<div class="line"></div>
+				</div>
+			</div>
+			<div class="grid__item">
+				<img class="bg" src="https://i.pinimg.com/474x/f6/7e/68/f67e682ec13a460861822664a18a1e81.jpg" alt="Подростки перелезают через забор">
+				<div class="like">
+					<img class="like__icon" src="https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678087-heart-512.png" alt="Лайк">
+					<span class="like__count">83</span>
+				</div>
+				<div class="card-content card-content--light">
+					<h1>Get up and dance-dance like a wild</h1>
+				</div>
+			</div>
+			<div class="grid__item">
+				<img class="bg" src="https://cdn.vanderbilt.edu/vu-web/insidedores-wpcontent/20190412155028/doge-pattern-27481-2880x1800.jpg">
+				<span class="overlay"></span>
+				<div class="like">
+					<img class="like__icon" src="https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678087-heart-512.png" alt="Лайк">
+					<span class="like__count">52</span>
+				</div>
+				<div class="card-content card-content--light">
+					<h1>What if the world revolves around Doge?</h1>
+				</div>
+			</div>
+			<div class="grid__item">
+				<div class="quote"></div>
+				<div class="like">
+					<img class="like__icon" src="https://cdn2.iconfinder.com/data/icons/pittogrammi/142/80-512.png" alt="Лайк">
+					<span class="like__count like__count--dark">1</span>
+				</div>
+				<span class="marker marker--red"></span>
+				<div class="card-content">
+					<h1>Are you fond of mathematics?</h1>
+					<img class="card-icon" src="https://image.flaticon.com/icons/png/512/746/746960.png">
+				</div>
+			</div>
+			<div class="grid__item">
+				<img class="bg" src="https://d7hftxdivxxvm.cloudfront.net/?resize_to=width&src=https%3A%2F%2Fartsy-media-uploads.s3.amazonaws.com%2Fv57s2wuvOgK86Rr0pf2FHA%252Fme%2Bvs%2Bothers%2B-%2Bmolly%2Bsoda%2Bas%2Bme%252C%2B2018.jpg&width=1200&quality=80">
+				<span class="overlay"></span>
+				<div class="like">
+					<img class="like__icon" src="https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678087-heart-512.png" alt="Лайк">
+					<span class="like__count">806</span>
+				</div>
+				<div class="card-content card-content--light">
+					<h1>Orange mood? Maybe</h1>
+				</div>
+				<div class="footer">
+					<img class="play" src="https://icon-library.com/images/white-play-icon-png/white-play-icon-png-7.jpg">
+					<div class="line"></div>
+				</div>
+			</div>
+			<div class="grid__item">
+				<img class="bg" src="https://64.media.tumblr.com/2a401d4f35f54b561925251f801e08f8/tumblr_nhixr2e2au1qc3l3bo1_640.jpg">
+				<span class="overlay"></span>
+				<div class="like">
+					<img class="like__icon" src="https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678087-heart-512.png" alt="Лайк">
+					<span class="like__count">354</span>
+				</div>
+				<div class="card-content card-content--light">
+					<h1>I am ballet dancer. And u? 💖🩰</h1>
+					<img class="card-icon" src="https://lh3.googleusercontent.com/proxy/jTksfJfmpFunCUPhCUo3NF1ErG4K0Hc9V1NsA_GvibIojDCRBObZX6OCiALEyvmMQ63w23gmTbilzvD_ZLPdd4v1wSjxr-rUXzwAjW039r4Vck-byVVF_eD1HNdt0Wn_iwnVsFpAmTFPxyYc9vdp2pYb1hOdGw">
+				</div>
+			</div>
+			<div class="grid__item">
+				<img class="bg" src="https://lh3.googleusercontent.com/proxy/IuiJF2lPz7jlLLkEWbJHPE514bBzz9V-OAkdDcStUISfmvDXD3uzvArLvdUlV67AUMNQy1OZNoRxMURm5-Vj-kQAgnBc1MipDNYHg87qLG0AuYbpggJJEdIX3Pf1CczT6sRUYM57yYYUjw">
+				<span class="overlay"></span>
+				<div class="like">
+					<img class="like__icon" src="https://cdn2.iconfinder.com/data/icons/pittogrammi/142/80-512.png" alt="Лайк">
+					<span class="like__count like__count--dark">534</span>
+				</div>
+				<div class="card-content card-content--light">
+					<h1>Dream Team</h1>
+				</div>
+				<div class="footer">
+					<img class="play" src="https://icon-library.com/images/white-play-icon-png/white-play-icon-png-7.jpg">
+					<div class="line"></div>
+				</div>
+			</div>
+			<div class="grid__item">
+				<div class="quote"></div>
+				<div class="like">
+					<img class="like__icon" src="https://cdn2.iconfinder.com/data/icons/pittogrammi/142/80-512.png" alt="Лайк">
+					<span class="like__count like__count--dark">11</span>
+				</div>
+				<div class="card-content">
+					<h1>Masters of <del>HARDCORE</del> HTML, yeah!</h1>
+					<img class="card-icon" src="https://i.pinimg.com/originals/40/18/19/4018196360d9fd3324ceffbcc182bcc8.png">
+				</div>
+			</div>
+			<div class="grid__item">
+				<img class="bg" src="https://ozbeautyexpert.com/wp-content/uploads/2015/06/IMG_9135v1-1-1024x802.jpg">
+				<span class="overlay"></span>
+				<div class="like">
+					<img class="like__icon" src="https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678087-heart-512.png" alt="Лайк">
+					<span class="like__count">1 134</span>
+				</div>
+				<div class="card-content card-content--light">
+					<h1>2 cool 4 school 😛</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
